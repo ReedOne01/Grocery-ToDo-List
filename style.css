@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section {
+  padding: 50px;
+  height: auto;
+  box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.6);
+  /* border: 1px solid red; */
+}
+.grocery-form {
+  text-align: center;
+}
+.alert {
+  /* color: red; */
+  letter-spacing: 2px;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 12px;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  transition: all 1.2s ease-in-out;
+}
+.alert-danger {
+  background-color: rgb(238, 94, 94);
+}
+.alert-success {
+  background-color: rgb(21, 211, 21);
+}
+input {
+  padding: 3px 5px;
+}
+.submit {
+  padding: 5px;
+}
+.groceryItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2rem 0;
+}
+.clearBtn {
+  border: none;
+  margin-top: 20px;
+  letter-spacing: 5px;
+  color: red;
+  text-align: center;
+  background: transparent;
+  width: 100%;
+}
