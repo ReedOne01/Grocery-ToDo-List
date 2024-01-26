@@ -11,13 +11,27 @@ body {
 }
 
 .section {
-  padding: 50px;
+  padding: 20px 5rem;
   height: auto;
   box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.6);
   /* border: 1px solid red; */
 }
 .grocery-form {
   text-align: center;
+}
+.groceryContainer {
+  visibility: hidden;
+  /* border: 1px solid red; */
+  margin-top: 2rem;
+  padding: 10px 0;
+}
+.showContainer {
+  visibility: visible;
+}
+.title {
+  background-color: aliceblue;
+  padding: 3px 0;
+  width: 80%;
 }
 .alert {
   /* color: red; */
@@ -35,24 +49,37 @@ body {
 .alert-success {
   background-color: rgb(21, 211, 21);
 }
+h2 {
+  margin-bottom: 1rem;
+}
 input {
-  padding: 3px 5px;
+  padding: 7px;
+  border: none;
+  box-shadow: 1px 1px 2px rgb(0, 0, 0, 0.2), 1px -1px 2px rgb(0, 0, 0, 0.2);
 }
 .submit {
   padding: 5px;
 }
 .groceryItem {
+  height: 100%;
   display: flex;
+  width: 100%;
+  /* border: 1px solid green; */
   align-items: center;
+  text-transform: capitalize;
   justify-content: space-between;
-  margin: 2rem 0;
+  margin: 0.5rem 0;
 }
 .clearBtn {
   border: none;
   margin-top: 20px;
-  letter-spacing: 5px;
+  letter-spacing: 3px;
   color: red;
   text-align: center;
+  text-transform: capitalize;
   background: transparent;
   width: 100%;
+}
+.groceryLists {
+  transition: all 2s ease;
 }
