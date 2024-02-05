@@ -57,6 +57,9 @@ input {
   border: none;
   box-shadow: 1px 1px 2px rgb(0, 0, 0, 0.2), 1px -1px 2px rgb(0, 0, 0, 0.2);
 }
+/* #input:active {
+  border-color: blue;
+} */
 .submit {
   padding: 5px;
 }

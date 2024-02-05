@@ -24,7 +24,7 @@ function addItems(e) {
   const value = input.value;
 
   // the is ID is just make a unique identifier
-  const id = new Date().getTime().toString;
+  const id = new Date().getTime().toString();
 
   if (value && !editFlag) {
     const element = document.createElement("article");
@@ -62,7 +62,8 @@ function addItems(e) {
     // set back to default
     setBackToDefault();
   } else if (value && editFlag) {
-    editElement = value;
+    editElement.innerHTML = value;
+    editLocalstorage(editId);
     displayAlert("value changed", "success");
     setBackToDefault();
   } else {
@@ -73,12 +74,15 @@ function addItems(e) {
 // delete item
 function deleteItem(e) {
   const element = e.currentTarget.parentNode.parentNode;
+  const id = element.dataset.id;
   list.removeChild(element);
   if (list.children.length === 0) {
     container.classList.remove("showContainer");
   }
   displayAlert("item deleted", "danger");
   setBackToDefault();
+  // remove from local storage
+  removeFromLocalstorage(id);
 }
 function editItem(e) {
   const element = e.currentTarget.parentElement.parentElement;
@@ -88,8 +92,8 @@ function editItem(e) {
   const editId = element.dataset.id;
   editFlag = true;
   submitBtn.textContent = "Edit";
-  element.innerHTML = input.value;
-  // console.log(value.innerHTML);
+  // element.innerHTML = input.value;
+  // console.log(editElement);
   // input.value = element
 }
 //clear all items
@@ -103,7 +107,6 @@ function clearItems() {
       displayAlert("empty lists", "danger");
     });
   }
-  // console.log("close");
 }
 //display alert
 function displayAlert(text, action) {
@@ -124,6 +127,33 @@ function setBackToDefault() {
 }
 //**** LOCAL STORAGE****
 function addToLocalStorage(id, value) {
-  console.log("save to local storage");
+  // const grocery ={id: id, value: value};
+  const grocery = { id, value };
+  let items = getLocalstorage(id);
+  // let items = localStorage.getItem("list")
+  //   ? JSON.parse(localStorage.getItem("list"))
+  //   : [];
+  // console.log(items);
+  items.push(grocery);
+  localStorage.setItem("list", JSON.stringify(items));
 }
+function removeFromLocalstorage(id) {
+  let items = getLocalstorage();
+  items = items.filter(function (item) {
+    if (item.id !== id) {
+      return item;
+    }
+    // console.log(i  tem.id !== id);
+  });
+  localStorage.setItem("list", JSON.stringify(items));
+}
+function editLocalstorage(id, value) {}
+function getLocalstorage() {
+  return localStorage.getItem("list")
+    ? JSON.parse(localStorage.getItem("list"))
+    : [];
+}
+// localStorage.setItem("oranges", JSON.stringify(["item1", "value2"]));
+// const oranges = JSON.parse(localStorage.getItem("oranges"));
+// console.log(oranges);
 // **** SETUP ITEMS *****
